@@ -1,10 +1,12 @@
 let formulario = document.getElementById("formulario")
-let Cpfinput = document.getElementById("cpf")
+let Cpfinput =  document.getElementById("cpf")
 let senha = document.getElementById("senha")
+let OlhoImg = document.getElementById("Olho")
+
 
 formulario.addEventListener("submit", function(e){
 
-     e.preventDefault()
+    e.preventDefault()
 
     if(Cpfinput === "" && senha === ""){
        alert("Por favor preencha os campos vazios")
@@ -15,20 +17,23 @@ formulario.addEventListener("submit", function(e){
 
 })
 
+
 function cpfMask(){
-    let Novocpf = Cpfinput.value.replace(/\D/g, "")
-    if(Novocpf.length <= 11){
-        Novocpf.replace(/(\d{3})(\d)/, "$1.$2")
-        Novocpf.replace(/(\d{6})(\d)/, "$1.$2")
-        Novocpf.replace(/(\d{9})(\d)/, "$1-$2")
-    }
+    let Novocpf = Cpfinput.value.replace(/\D/g, "");
+    
+      Cpfinput = Novocpf.replace(/(\d{3})(\d)/, "$1.$2");
+      Cpfinput = Novocpf.replace(/(\d{3})(\d)/, "$1.$2");
+      Cpfinput = Novocpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
     Cpfinput.value = Novocpf;
 }
 
 function MostrarSenha(){
-    if(senha.type == "password"){
-        senha.type == "text"
+    if(senha.type == "password" && OlhoImg.src == "Olho_aberto.png"){
+        senha.type = "text";
+        OlhoImg.src = "Olho_cego.png";
     } else {
-        senha.type == "password"
+        senha.type = "password"
+        OlhoImg.src = "Olho_aberto.png";
     } 
 }

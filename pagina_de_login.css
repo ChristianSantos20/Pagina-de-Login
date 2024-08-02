@@ -30,6 +30,29 @@ form{
     width: 45vh;
     padding: 3%;
 }
+.form_input:hover{
+    border-bottom: 2px solid #00ffff;
+    transition: 1s;
+}
+#cpf{
+    background-image: url(./imagem/Login.png);
+    background-position: right;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+}
+#senha{
+    background-image: url(./imagem/Senha.png);
+    background-position: right;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+input:hover{
+    transition: 1s;
+    font-size: large;
+}
 button{
     width: 45vh;
     height: 5vh;
@@ -41,8 +64,14 @@ button{
 button:hover{
     background-color: white;
     color: black;
+    width: 45vh;
+    height: 5vh;
+    transition: 0.3s;
+    font-size: large;
 }
-
+#Olho{
+    width: 3vh;
+}
 @media (380px <= width <= 1000px){
     .img_fundo{
         display: none;
