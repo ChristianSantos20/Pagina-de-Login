@@ -1,39 +1,45 @@
-let formulario = document.getElementById("formulario")
-let Cpfinput =  document.getElementById("cpf")
-let senha = document.getElementById("senha")
-let OlhoImg = document.getElementById("Olho")
-
+var formulario = document.getElementById("formulario")
+var Cpfinput =  document.getElementById("cpf")
+var senha = document.getElementById("senha")
+var OlhoImg = document.getElementById("Olho")
 
 formulario.addEventListener("submit", function(e){
 
     e.preventDefault()
 
-    if(Cpfinput === "" && senha === ""){
-       alert("Por favor preencha os campos vazios")
-       return false
-    } else{
-       return true
+    if(Cpfinput === ""){
+        alert("Por favor preencha campos vazios")
+        return false
     }
-
+    if(senha === ""){
+        alert("Por favor preencha os campos vazios")
+        return false
+    }
 })
-
 
 function cpfMask(){
     let Novocpf = Cpfinput.value.replace(/\D/g, "");
     
-      Cpfinput = Novocpf.replace(/(\d{3})(\d)/, "$1.$2");
-      Cpfinput = Novocpf.replace(/(\d{3})(\d)/, "$1.$2");
-      Cpfinput = Novocpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    Novocpf = Cpfinput.value.replace(/(\d{3})(\d)/, "$1.$2");
+    Novocpf = Cpfinput.value.replace(/(\d{3})(\d)/, "$1.$2");
+    Novocpf = Cpfinput.value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
 
-    Cpfinput.value = Novocpf;
+    Cpfinput = Novocpf.value;
 }
 
 function MostrarSenha(){
-    if(senha.type == "password" && OlhoImg.src == "Olho_aberto.png"){
+   
+    if(senha.type === "password"){
         senha.type = "text";
-        OlhoImg.src = "Olho_cego.png";
     } else {
-        senha.type = "password"
-        OlhoImg.src = "Olho_aberto.png";
+        senha.type = "password";
     } 
+    
+    let olho = document.getElementById("Olho")
+
+    if(olho.src === "./imagem/Olho_aberto.png"){
+        olho.src = "./imagem/Olho_cego.png"
+    } else {
+        olho.src = "./imagem/Olho_aberto.png"
+    }
 }
